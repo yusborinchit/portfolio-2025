@@ -1,0 +1,24 @@
+---
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+import MainLayout from "../components/layouts/main-layout.astro";
+import AboutMeSection from "../components/sections/about-me-section.astro";
+import ClientsSection from "../components/sections/clients-section.astro";
+import ContactSection from "../components/sections/contact-section.astro";
+import EducationSection from "../components/sections/education-section.astro";
+import HeroSection from "../components/sections/hero-section.astro";
+import ProjectsSection from "../components/sections/projects-section.astro";
+---
+
+<MainLayout>
+  <Header />
+  <div class="flex flex-col pt-26 gap-32 w-full">
+    <HeroSection />
+    <AboutMeSection />
+    <ClientsSection />
+    <ProjectsSection />
+    <EducationSection />
+    <ContactSection />
+  </div>
+  <Footer />
+</MainLayout>

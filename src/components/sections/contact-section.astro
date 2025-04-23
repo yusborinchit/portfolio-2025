@@ -1,0 +1,82 @@
+---
+import PrimaryButton from "../buttons/primary-button.astro";
+import SecondaryButton from "../buttons/secondary-button.astro";
+import InfoCard from "../cards/info-card.astro";
+import GithubIcon from "../icons/github-icon.astro";
+import LinkedinIcon from "../icons/linkedin-icon.astro";
+import MailIcon from "../icons/mail-icon.astro";
+import MainContainer from "../main-container.astro";
+---
+
+<MainContainer as="section" className="flex flex-col gap-6 w-full">
+  <h2 class="flex items-center gap-[1ch] mx-auto">
+    <span
+      class="font-mono text-2xl sm:text-3xl shrink-0 font-black text-foreground-muted"
+    >
+      {"<!--"}
+    </span>
+    <span
+      class="text-4xl sm:text-5xl font-mono font-black text-center leading-[1] tracking-tighter"
+    >
+      Get In Touch
+    </span>
+    <span
+      class="font-mono text-2xl sm:text-3xl shrink-0 font-black text-foreground-muted"
+    >
+      {"-->"}
+    </span>
+  </h2>
+  <p class="text-foreground-muted text-center max-w-[450px] mx-auto">
+    Have a project in mind or want to discuss work opportunities? Feel free to
+    reach out, I'm excited to hear from you!
+  </p>
+  <div class="flex flex-col sm:grid grid-cols-3 gap-18 sm:gap-6">
+    <form
+      action="https://formspree.io/f/manwqykv"
+      method="POST"
+      class="flex flex-col gap-6 col-span-2"
+    >
+      <div class="flex flex-col gap-2">
+        <label for="email" class="font-bold font-mono tracking-tight">
+          <span class="text-accent">#</span> Your Email
+        </label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          required
+          placeholder="TODO: Add your email..."
+          class="font-mono px-4 py-3 rounded-lg bg-foreground-muted/5 to-foreground-muted/5 font-light placeholder:text-foreground-muted border-foreground-muted/15 border focus-visible:outline-none focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:ring-2"
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="message" class="font-bold font-mono tracking-tight">
+          <span class="text-accent">#</span> Your Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows="6"
+          placeholder="TODO: Add your message..."
+          class="font-mono px-4 py-3 rounded-lg bg-foreground-muted/5 to-foreground-muted/5 font-light placeholder:text-foreground-muted resize-none border-foreground-muted/15 border focus-visible:outline-none focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:ring-2"
+        ></textarea>
+      </div>
+      <div class="mt-12 flex gap-6 items-center">
+        <PrimaryButton type="submit">submitMessage()</PrimaryButton>
+        <SecondaryButton href="#">Download CV</SecondaryButton>
+      </div>
+    </form>
+    <div class="flex flex-col gap-4">
+      <InfoCard href="#" label="Email:" text="santiago.garcia@gmail.com">
+        <MailIcon className="size-11 shrink-0 text-accent" />
+      </InfoCard>
+      <InfoCard href="#" label="Github:" text="yusborinchit">
+        <GithubIcon className="size-11 shrink-0 text-accent" />
+      </InfoCard>
+      <InfoCard href="#" label="LinkedIn:" text="Santiago García">
+        <LinkedinIcon className="size-11 shrink-0 text-accent" />
+      </InfoCard>
+    </div>
+  </div>
+</MainContainer>

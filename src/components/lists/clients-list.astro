@@ -1,0 +1,28 @@
+---
+import ButterflyNailsMockup from "../../assets/mockups/butterfly-nails.webp";
+import ProjectCard from "../cards/project-card.astro";
+
+const clients = [
+  {
+    type: "Freelance Project",
+    title: "Butterfly Nails Landing",
+    techs: [
+      "Next.js",
+      "TailwindCSS",
+      "Drizzle",
+      "PostgreSQL",
+      "Framer Motion",
+      "TypeScript",
+    ],
+    description:
+      "Landing page for a boutique nail salon, featuring an integrated online booking system.",
+    deploy: "#",
+    repo: "#",
+    image: ButterflyNailsMockup,
+  },
+];
+---
+
+<div class="flex flex-col gap-6 items-center">
+  {clients.map((client) => <ProjectCard {...client} />)}
+</div>

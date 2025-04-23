@@ -1,0 +1,19 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  text: string;
+}
+
+const { href, label, text } = Astro.props;
+---
+
+<div class="flex gap-3 items-center">
+  <slot />
+  <div class="flex flex-col">
+    <p class="font-bold leading-[1] font-mono tracking-tight">{label}</p>
+    <a href={href} class="font-mono text-foreground-muted hover:underline">
+      {text}
+    </a>
+  </div>
+</div>

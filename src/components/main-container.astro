@@ -1,0 +1,14 @@
+---
+import { twMerge } from "tailwind-merge";
+
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  className?: string;
+  as?: keyof astroHTML.JSX.IntrinsicElements;
+}
+
+const { as: Component = "div", className, ...props } = Astro.props;
+---
+
+<Component {...props} class={twMerge("max-w-[900px] mx-auto px-6", className)}>
+  <slot />
+</Component>

@@ -1,0 +1,13 @@
+---
+interface Props {
+  tech: string;
+}
+
+const { tech } = Astro.props;
+---
+
+<li
+  class="grid place-items-center rounded border px-2 text-sm py-1.5 leading-[1] bg-zinc-900 border-zinc-800 text-zinc-400"
+>
+  {tech}
+</li>

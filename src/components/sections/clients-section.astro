@@ -1,0 +1,29 @@
+---
+import ClientsList from "../lists/clients-list.astro";
+import MainContainer from "../main-container.astro";
+---
+
+<MainContainer as="section" className="flex flex-col gap-6">
+  <h2 class="flex items-center gap-[1ch] mx-auto">
+    <span
+      class="font-mono text-2xl sm:text-3xl shrink-0 font-black text-foreground-muted"
+    >
+      {"<!--"}
+    </span>
+    <span
+      class="text-4xl sm:text-5xl font-mono font-black leading-[1] tracking-tighter"
+    >
+      My Clients
+    </span>
+    <span
+      class="font-mono text-2xl sm:text-3xl shrink-0 font-black text-foreground-muted"
+    >
+      {"-->"}
+    </span>
+  </h2>
+  <p class="text-foreground-muted text-center max-w-[450px] mx-auto">
+    In the past two years, I have been working as a freelancer, creating
+    projects for small businesses.
+  </p>
+  <ClientsList />
+</MainContainer>

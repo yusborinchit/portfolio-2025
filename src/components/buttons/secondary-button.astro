@@ -1,0 +1,16 @@
+---
+import { twMerge } from "tailwind-merge";
+
+interface Props {
+  href: string;
+  className?: string;
+}
+
+const { href, className } = Astro.props;
+---
+
+<a href={href} class={twMerge("flex group gap-1 font-mono", className)}>
+  <span class="text-accent">[</span>
+  <span class="group-hover:underline underline-offset-4"><slot /></span>
+  <span class="text-accent">]</span>
+</a>

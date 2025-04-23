@@ -1,0 +1,12 @@
+---
+interface Props {
+  href: string;
+  label: string;
+}
+
+const { href, label } = Astro.props;
+---
+
+<a href={href} class="hover:underline decoration-accent underline-offset-4">
+  {label}<span class="text-accent">()</span>
+</a>

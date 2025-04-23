@@ -1,0 +1,23 @@
+---
+import "@fontsource-variable/arimo";
+import "@fontsource-variable/jetbrains-mono";
+
+import Background from "../background.astro";
+
+import "./src/styles/global.css";
+---
+
+<!doctype html>
+<html lang="en" class="antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Santiago García | Portfolio 2025</title>
+  </head>
+  <body class="font-sans text-lg text-foreground bg-background">
+    <slot />
+    <Background />
+  </body>
+</html>

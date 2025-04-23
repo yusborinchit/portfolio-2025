@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Arimo Variable";
+  --font-mono: "JetBrains Mono Variable";
+
+  --color-background: var(--color-neutral-950);
+
+  --color-foreground: var(--color-neutral-100);
+  --color-foreground-muted: var(--color-neutral-500);
+
+  --color-accent: var(--color-violet-500);
+  --color-accent-dark: var(--color-violet-800);
+}

@@ -1,0 +1,41 @@
+---
+import CalendarClock from "@lucide/astro/icons/calendar-clock";
+import SecondaryButton from "../buttons/secondary-button.astro";
+
+interface Props {
+  type: string;
+  institution: string;
+  name: string;
+  description: string;
+  time: string;
+  href: string;
+}
+
+const { type, institution, name, description, time, href } = Astro.props;
+---
+
+<article
+  class="flex flex-col gap-6 py-10 px-6 rounded-xl bg-gradient-to-t from-foreground-muted/5"
+>
+  <div class="flex flex-col gap-3">
+    <p
+      class="font-mono text-base uppercase text-accent leading-[1] tracking-wider"
+    >
+      {type}
+    </p>
+    <h3
+      class="font-bold tracking-tight flex flex-col gap-1 text-3xl leading-[1] -mt-1"
+    >
+      <span>{institution}</span>
+      <span>{name}</span>
+    </h3>
+  </div>
+  <div class="flex items-center text-foreground-muted/50 gap-2 -my-2.5">
+    <CalendarClock />
+    <p class="font-mono font-semibold">{time}</p>
+  </div>
+  <p class="text-foreground-muted line-clamp-3">
+    {description}
+  </p>
+  <SecondaryButton href={href}>Visit Page</SecondaryButton>
+</article>

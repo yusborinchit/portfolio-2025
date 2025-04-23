@@ -1,0 +1,33 @@
+---
+import EducationCard from "../cards/education-card.astro";
+import MainContainer from "../main-container.astro";
+---
+
+<MainContainer as="section" className="flex flex-col gap-6">
+  <h2
+    class="text-4xl sm:text-5xl font-mono font-black uppercase tracking-tight"
+  >
+    <span class="text-accent">#</span> Educational Background
+  </h2>
+  <p class="text-foreground-muted max-w-[450px]">
+    A peek into my educational background and learning experiences.
+  </p>
+  <div class="grid sm:grid-cols-2 gap-6">
+    <EducationCard
+      type="Technological high school"
+      institution="Instituto Tecnológico Superior"
+      name="Arias Balparda"
+      description="At my technical high school, I mastered web design basics, learning HTML, CSS, and JavaScript for Frontend development."
+      time="From 2020 to 2022"
+      href="#"
+    />
+    <EducationCard
+      type="University of Engineering"
+      institution="Facultad de Ingeniería"
+      name="Universidad de la República"
+      description="At university, I delved into advanced algorithms and software patterns, enriching my programming knowledge beyond basics."
+      time="From 2023 to Present"
+      href="#"
+    />
+  </div>
+</MainContainer>

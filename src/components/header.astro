@@ -1,0 +1,18 @@
+---
+import HeaderItem from "./header-item.astro";
+import MainContainer from "./main-container.astro";
+---
+
+<MainContainer as="header" className="py-4">
+  <nav class="font-mono justify-center gap-4 items-center hidden sm:flex">
+    <span aria-hidden="true" class="text-foreground-muted text-3xl">{"{"}</span>
+    <div class="flex gap-4 flex-wrap justify-center">
+      <HeaderItem href="#" label="getAboutMe" />
+      <HeaderItem href="#" label="getClients" />
+      <HeaderItem href="#" label="getProjects" />
+      <HeaderItem href="#" label="getEducation" />
+      <HeaderItem href="#" label="getInTouch" />
+    </div>
+    <span aria-hidden="true" class="text-foreground-muted text-3xl">{"}"}</span>
+  </nav>
+</MainContainer>

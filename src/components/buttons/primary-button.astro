@@ -1,0 +1,35 @@
+---
+import { twMerge } from "tailwind-merge";
+
+interface Props {
+  href?: string;
+  type?: "button" | "submit" | "reset";
+  className?: string;
+}
+
+const { href, type, className } = Astro.props;
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      class={twMerge(
+        "font-mono grid font-bold px-5 py-2.5 rounded-md bg-gradient-to-t from-accent-dark to-accent text-white w-fit hover:brightness-75 transition-[filter]",
+        className
+      )}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button
+      type={type}
+      class={twMerge(
+        "font-mono grid font-bold px-5 py-2.5 rounded-md bg-gradient-to-t from-accent-dark to-accent text-white w-fit hover:brightness-75 transition-[filter] cursor-pointer",
+        className
+      )}
+    >
+      <slot />
+    </button>
+  )
+}
