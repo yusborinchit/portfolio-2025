@@ -30,7 +30,7 @@ import MainContainer from "../main-container.astro";
     Have a project in mind or want to discuss work opportunities? Feel free to
     reach out, I'm excited to hear from you!
   </p>
-  <div class="flex flex-col sm:grid grid-cols-3 gap-18 sm:gap-6">
+  <div class="flex flex-col md:grid grid-cols-3 gap-18 md:gap-6">
     <form
       action="https://formspree.io/f/manwqykv"
       method="POST"
@@ -62,17 +62,17 @@ import MainContainer from "../main-container.astro";
           class="font-mono px-4 py-3 rounded-lg bg-foreground-muted/5 to-foreground-muted/5 font-light placeholder:text-foreground-muted resize-none border-foreground-muted/15 border focus-visible:outline-none focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:ring-2"
         ></textarea>
       </div>
-      <div class="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center">
-        <PrimaryButton type="submit" className="w-full sm:w-auto">
+      <div class="mt-12 flex flex-col gap-6 md:flex-row md:items-center">
+        <PrimaryButton type="submit" className="w-full md:w-auto">
           submitMessage()
         </PrimaryButton>
-        <SecondaryButton href="#" className="mx-auto sm:mx-0">
+        <SecondaryButton href="#" className="mx-auto md:mx-0">
           Download CV
         </SecondaryButton>
       </div>
     </form>
     <div class="flex flex-col gap-4">
-      <InfoCard href="#" label="Email:" text="santiago.garcia@gmail.com">
+      <InfoCard href="#" label="Email:" text="sgarciacedres@gmail.com">
         <MailIcon className="size-11 shrink-0 text-accent" />
       </InfoCard>
       <InfoCard href="#" label="Github:" text="yusborinchit">
