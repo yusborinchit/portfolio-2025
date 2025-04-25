@@ -9,9 +9,6 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
 const { as: Component = "div", className, ...props } = Astro.props;
 ---
 
-<Component
-  {...props}
-  class={twMerge("max-w-[900px] mx-auto px-6 overflow-hidden", className)}
->
+<Component {...props} class={twMerge("max-w-[900px] mx-auto px-6", className)}>
   <slot />
 </Component>
