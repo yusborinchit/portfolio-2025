@@ -4,6 +4,7 @@ import TechBadge from "../tech-badge.astro";
 import { type ImageMetadata } from "astro";
 import PrimaryButton from "../buttons/primary-button.astro";
 import SecondaryButton from "../buttons/secondary-button.astro";
+import SlideIn from "../motion/slide-in";
 
 interface Props {
   type: string;
@@ -13,48 +14,61 @@ interface Props {
   deploy: string;
   repo: string;
   image: ImageMetadata;
+  direction: "left" | "right";
 }
 
-const { type, title, techs, description, deploy, repo, image } = Astro.props;
+const { type, title, techs, description, deploy, repo, image, direction } =
+  Astro.props;
 ---
 
-<article
-  class="flex flex-col-reverse sm:grid grid-cols-5 gap-6 rounded-xl bg-gradient-to-t from-foreground-muted/5 overflow-hidden"
+<SlideIn
+  initial={{
+    opacity: 0,
+    translateX: direction === "right" ? "10rem" : "-10rem",
+  }}
+  whileInView={{ opacity: 1, translateX: 0 }}
+  viewport={{ once: true, amount: "some" }}
+  transition={{ duration: 0.85, ease: "anticipate" }}
+  client:load
 >
-  <div class="col-span-3 flex flex-col gap-6 px-6 py-10">
-    <div class="flex flex-col gap-2">
-      <p
-        class="font-mono text-base uppercase text-accent leading-[1] tracking-wider"
-      >
-        {type}
+  <article
+    class="flex flex-col-reverse sm:grid grid-cols-5 gap-6 rounded-xl bg-gradient-to-t from-foreground-muted/5 overflow-hidden"
+  >
+    <div class="col-span-3 flex flex-col gap-6 px-6 py-10">
+      <div class="flex flex-col gap-2">
+        <p
+          class="font-mono text-base uppercase text-accent leading-[1] tracking-wider"
+        >
+          {type}
+        </p>
+        <h3
+          class="font-bold tracking-tight flex flex-col gap-1 text-3xl leading-[1] -mt-1"
+        >
+          {title}
+        </h3>
+      </div>
+      <div class="flex flex-col gap-1">
+        <p class="font-mono text-base text-foreground-muted/50">Tech Stack:</p>
+        <ul class="flex gap-1.5 flex-wrap font-mono">
+          {techs.map((tech) => <TechBadge tech={tech} />)}
+        </ul>
+      </div>
+      <p class="text-foreground-muted">
+        {description}
       </p>
-      <h3
-        class="font-bold tracking-tight flex flex-col gap-1 text-3xl leading-[1] -mt-1"
-      >
-        {title}
-      </h3>
+      <div class="mt-auto flex flex-col sm:flex-row items-center gap-4">
+        <PrimaryButton href={deploy} className="w-full sm:w-auto text-center"
+          >getDeploy()</PrimaryButton
+        >
+        <SecondaryButton href={repo}>Visit Repo</SecondaryButton>
+      </div>
     </div>
-    <div class="flex flex-col gap-1">
-      <p class="font-mono text-base text-foreground-muted/50">Tech Stack:</p>
-      <ul class="flex gap-1.5 flex-wrap font-mono">
-        {techs.map((tech) => <TechBadge tech={tech} />)}
-      </ul>
+    <div class="col-span-2 overflow-hidden">
+      <Image
+        src={image}
+        alt={`${title} Mockup`}
+        class="object-cover hover:scale-125 transition-transform h-[300px] sm:min-h-[400px]"
+      />
     </div>
-    <p class="text-foreground-muted">
-      {description}
-    </p>
-    <div class="mt-auto flex flex-col sm:flex-row items-center gap-4">
-      <PrimaryButton href={deploy} className="w-full sm:w-auto text-center"
-        >getDeploy()</PrimaryButton
-      >
-      <SecondaryButton href={repo}>Visit Repo</SecondaryButton>
-    </div>
-  </div>
-  <div class="col-span-2 overflow-hidden">
-    <Image
-      src={image}
-      alt={`${title} Mockup`}
-      class="object-cover hover:scale-125 transition-transform h-[300px] sm:min-h-[400px]"
-    />
-  </div>
-</article>
+  </article>
+</SlideIn>

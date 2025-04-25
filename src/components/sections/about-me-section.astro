@@ -1,48 +1,58 @@
 ---
 import MainContainer from "../main-container.astro";
+import SlideIn from "../motion/slide-in";
 ---
 
 <MainContainer as="section">
-  <div class="rounded-xl overflow-hidden">
-    <div
-      class="w-full px-6 py-[18px] flex items-center text-base text-foreground-muted bg-foreground-muted/10 justify-between flex-col sm:flex-row gap-4"
-    >
-      <div class="flex gap-2">
-        <div class="size-4 rounded-full bg-red-500"></div>
-        <div class="size-4 rounded-full bg-green-500"></div>
-        <div class="size-4 rounded-full bg-yellow-500"></div>
-      </div>
-      <p class="font-mono text-foreground-muted/50">~/src/README.md</p>
-      <div class="gap-2 hidden sm:flex">
-        <div class="size-4 rounded-full"></div>
-        <div class="size-4 rounded-full"></div>
-        <div class="size-4 rounded-full"></div>
-      </div>
-    </div>
-    <div
-      class="flex flex-col gap-6 px-6 py-12 bg-gradient-to-t from-foreground-muted/5"
-    >
-      <h2
-        class="text-4xl sm:text-5xl font-mono font-black uppercase tracking-tight"
+  <SlideIn
+    initial={{ opacity: 0, translateY: "10rem" }}
+    whileInView={{ opacity: 1, translateY: 0 }}
+    viewport={{ once: true, amount: "some" }}
+    transition={{ duration: 0.85, ease: "anticipate" }}
+    client:load
+  >
+    <div class="rounded-xl overflow-hidden">
+      <div
+        class="w-full px-6 py-[18px] flex items-center text-base text-foreground-muted bg-foreground-muted/10 justify-between flex-col sm:flex-row gap-4"
       >
-        <span class="text-accent">#</span> About me
-      </h2>
-      <p class="font-mono text-foreground-muted [&>strong]:font-black">
-        Hi there! I'm <strong>Santiago</strong> a
-        <strong>passionate Fullstack Developer</strong>, and my journey in
-        software development began back in school when teachers introduced me to
-        <strong>Scratch</strong>. That sparked my curiosity for
-        <strong>software development</strong>, igniting a passion that continues
-        to drive me forward.
-      </p>
-      <p class="font-mono text-foreground-muted [&>strong]:font-black">
-        As a <strong>Fullstack Developer</strong>, I specialize in crafting
-        seamless digital experiences, fueled by <strong>creativity</strong> and a
-        love for <strong>problem-solving</strong>. I'm
-        <strong>dedicated</strong> to <strong>transforming ideas</strong> into polished,
-        functional solutions and thrive on staying at the
-        <strong>forefront of technology</strong>.
-      </p>
+        <div class="flex gap-2">
+          <div class="size-4 rounded-full bg-red-500"></div>
+          <div class="size-4 rounded-full bg-green-500"></div>
+          <div class="size-4 rounded-full bg-yellow-500"></div>
+        </div>
+        <p class="font-mono text-foreground-muted/50">~/src/README.md</p>
+        <div class="gap-2 hidden sm:flex">
+          <div class="size-4 rounded-full"></div>
+          <div class="size-4 rounded-full"></div>
+          <div class="size-4 rounded-full"></div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col gap-6 px-6 py-12 bg-gradient-to-t from-foreground-muted/5"
+      >
+        <h2
+          class="text-4xl sm:text-5xl font-mono font-black uppercase tracking-tight"
+        >
+          <span class="text-accent">#</span> About me
+        </h2>
+        <p class="font-mono text-foreground-muted [&>strong]:font-black">
+          Hi there! I'm <strong>Santiago</strong> a
+          <strong>passionate Fullstack Developer</strong>, and my journey in
+          software development began back in school when teachers introduced me
+          to
+          <strong>Scratch</strong>. That sparked my curiosity for
+          <strong>software development</strong>, igniting a passion that
+          continues to drive me forward.
+        </p>
+        <p class="font-mono text-foreground-muted [&>strong]:font-black">
+          As a <strong>Fullstack Developer</strong>, I specialize in crafting
+          seamless digital experiences, fueled by <strong>creativity</strong> and
+          a love for <strong>problem-solving</strong>. I'm
+          <strong>dedicated</strong> to <strong>transforming ideas</strong> into
+          polished, functional solutions and thrive on staying at the
+          <strong>forefront of technology</strong>.
+        </p>
+      </div>
     </div>
-  </div>
+  </SlideIn>
 </MainContainer>

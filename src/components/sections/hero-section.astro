@@ -3,41 +3,51 @@ import PrimaryButton from "../buttons/primary-button.astro";
 import GithubIcon from "../icons/github-icon.astro";
 import LinkedinIcon from "../icons/linkedin-icon.astro";
 import MainContainer from "../main-container.astro";
+import SlideIn from "../motion/slide-in";
 ---
 
 <MainContainer as="section" className="w-full">
-  <div class="flex flex-col gap-6">
-    <div class="flex flex-col gap-2">
-      <p class="font-mono text-foreground-muted">/* Looking for job 🔎👀 */</p>
-      <h1
-        class="text-7xl sm:text-8xl flex *:leading-[0.85] flex-col gap-1 font-black tracking-tight"
-      >
-        <span>Santiago</span>
-        <span>García<span class="text-accent">;</span></span>
-      </h1>
-    </div>
-    <p class="max-w-[42ch] text-foreground-muted">
-      Fullstack Developer from Uruguay, specialized in Next.js, focused on
-      creating user-friendly web solutions.
-    </p>
-    <div class="flex gap-4 items-center flex-col sm:flex-row">
-      <PrimaryButton href="#" className="w-full sm:w-auto text-center"
-        >getProjects()</PrimaryButton
-      >
-      <div class="flex items-center gap-4">
-        <a
-          href="#"
-          class="rounded-full outline-4 outline-transparent hover:scale-110 transition-transform hover:outline-accent"
+  <SlideIn
+    initial={{ opacity: 0, translateX: "-10rem" }}
+    animate={{ opacity: 1, translateX: "0rem" }}
+    transition={{ duration: 0.85, ease: "anticipate" }}
+    client:load
+  >
+    <div class="flex flex-col gap-6">
+      <div class="flex flex-col gap-2">
+        <p class="font-mono text-foreground-muted">
+          /* Looking for job 🔎👀 */
+        </p>
+        <h1
+          class="text-7xl sm:text-8xl flex *:leading-[0.85] flex-col gap-1 font-black tracking-tight"
         >
-          <GithubIcon className="w-11 shrink-0 h-11" />
-        </a>
-        <a
-          href="#"
-          class="rounded-md outline-4 outline-transparent hover:scale-110 transition-transform hover:outline-accent"
-        >
-          <LinkedinIcon className="w-11 shrink-0 h-11" />
-        </a>
+          <span>Santiago</span>
+          <span>García<span class="text-accent">;</span></span>
+        </h1>
+      </div>
+      <p class="max-w-[42ch] text-foreground-muted">
+        Fullstack Developer from Uruguay, specialized in Next.js, focused on
+        creating user-friendly web solutions.
+      </p>
+      <div class="flex gap-4 items-center flex-col sm:flex-row">
+        <PrimaryButton href="#" className="w-full sm:w-auto text-center">
+          getProjects()
+        </PrimaryButton>
+        <div class="flex items-center gap-4">
+          <a
+            href="#"
+            class="rounded-full outline-4 outline-transparent hover:scale-110 transition-transform hover:outline-accent"
+          >
+            <GithubIcon className="w-11 shrink-0 h-11" />
+          </a>
+          <a
+            href="#"
+            class="rounded-md outline-4 outline-transparent hover:scale-110 transition-transform hover:outline-accent"
+          >
+            <LinkedinIcon className="w-11 shrink-0 h-11" />
+          </a>
+        </div>
       </div>
     </div>
-  </div>
+  </SlideIn>
 </MainContainer>
