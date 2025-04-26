@@ -3,6 +3,7 @@ import "@fontsource-variable/arimo";
 import "@fontsource-variable/jetbrains-mono";
 
 import BackgroundBlob from "../motion/background-blob";
+import Background from "../background.astro";
 
 import "../../styles/global.css";
 ---
@@ -17,11 +18,10 @@ import "../../styles/global.css";
     <title>Santiago García | Portfolio 2025</title>
   </head>
   <body
-    class="font-sans subpixel-antialiased scroll-smooth text-lg text-foreground bg-background"
+    class="font-sans subpixel-antialiased scroll-smooth text-lg text-foreground bg-background selection:bg-accent selection:text-foreground"
   >
     <slot />
-    <!-- <BackgroundText client:load /> -->
-    <BackgroundBlob client:load />
-    <!-- <Background /> -->
+    <!-- <BackgroundBlob client:load /> -->
+    <Background />
   </body>
 </html>

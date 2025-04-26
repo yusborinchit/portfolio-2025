@@ -8,8 +8,20 @@
 
   --color-foreground: var(--color-neutral-100);
   --color-foreground-muted: var(--color-neutral-500);
-  --color-foreground-dark: #151515;
-  --color-foreground-darker: #0f0f0f;
+
+  --color-foreground-dark: color-mix(
+    in srgb,
+    var(--color-foreground) 8%,
+    black
+  );
+  --color-foreground-darker: color-mix(
+    in srgb,
+    var(--color-foreground) 6%,
+    black
+  );
+
+  /* --color-foreground-dark: #151515;
+  --color-foreground-darker: #0f0f0f; */
 
   --color-accent: var(--color-violet-500);
   --color-accent-dark: var(--color-violet-800);

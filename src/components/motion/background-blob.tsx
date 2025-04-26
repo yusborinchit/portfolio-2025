@@ -30,14 +30,14 @@ export default function Background() {
   }, []);
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
+    <div className="hidden sm:inline relative w-full h-full overflow-hidden">
       <motion.div
         style={{
           x: springX,
           y: springY,
           rotate: springRotate,
         }}
-        className="pointer-events-none fixed top-0 left-0 size-46 blur-3xl -z-10 bg-[radial-gradient(ellipse_at_center,_var(--color-accent),_transparent)]"
+        className="pointer-events-none fixed top-0 left-0 size-46 blur-3xl -z-10 bg-[radial-gradient(ellipse_at_center,_var(--color-accent-dark),_transparent)] opacity-30"
       ></motion.div>
     </div>
   );
