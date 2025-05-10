@@ -1,5 +1,5 @@
-import ButterflyNailsMockup from "../assets/mockups/butterfly-nails.jpeg";
-import RoboticDrumsMockup from "../assets/mockups/robotic-drums.jpeg";
+import ButterflyNailsMockup from "../assets/mockups/butterfly-nails.webp";
+import RoboticDrumsMockup from "../assets/mockups/robotic-drums.webp";
 
 export const clients = [
   {
