@@ -1,5 +1,6 @@
 ---
-import ClientsList from "../lists/clients-list.astro";
+import { clients } from "../../data/clients";
+import ProjectsList from "../lists/projects-list.astro";
 import MainContainer from "../main-container.astro";
 ---
 
@@ -25,5 +26,5 @@ import MainContainer from "../main-container.astro";
     In the past two years, I have been working as a freelancer, creating
     projects for small businesses.
   </p>
-  <ClientsList />
+  <ProjectsList projects={clients} />
 </MainContainer>

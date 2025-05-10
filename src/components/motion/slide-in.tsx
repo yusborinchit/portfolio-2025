@@ -10,7 +10,7 @@ import {
 import * as m from "motion/react-m";
 import { type RefObject } from "react";
 
-interface Props {
+interface SlideInProps {
   initial?: boolean | TargetAndTransition | VariantLabels;
   animate?: boolean | TargetAndTransition | VariantLabels | AnimationControls;
   transition?: Transition;
@@ -24,14 +24,14 @@ interface Props {
   children: React.ReactNode;
 }
 
-export default function SlideIn({
+function SlideIn({
   initial,
   animate,
   transition,
   whileInView,
   viewport,
   children,
-}: Readonly<Props>) {
+}: Readonly<SlideInProps>) {
   const reducedMotion = useReducedMotion();
 
   return reducedMotion ? (
@@ -48,5 +48,69 @@ export default function SlideIn({
         {children}
       </m.div>
     </LazyMotion>
+  );
+}
+
+interface SlideInFromDirectionProps {
+  children: React.ReactNode;
+}
+
+export function SlideInFromRight({
+  children,
+}: Readonly<SlideInFromDirectionProps>) {
+  return (
+    <SlideIn
+      initial={{ opacity: 0, translateX: "10rem" }}
+      whileInView={{ opacity: 1, translateX: 0 }}
+      viewport={{ once: true, amount: "some" }}
+      transition={{ duration: 0.85, ease: "easeOut" }}
+    >
+      {children}
+    </SlideIn>
+  );
+}
+
+export function SlideInFromLeft({
+  children,
+}: Readonly<SlideInFromDirectionProps>) {
+  return (
+    <SlideIn
+      initial={{ opacity: 0, translateX: "-10rem" }}
+      whileInView={{ opacity: 1, translateX: 0 }}
+      viewport={{ once: true, amount: "some" }}
+      transition={{ duration: 0.85, ease: "easeOut" }}
+    >
+      {children}
+    </SlideIn>
+  );
+}
+
+export function SlideInFromTop({
+  children,
+}: Readonly<SlideInFromDirectionProps>) {
+  return (
+    <SlideIn
+      initial={{ opacity: 0, translateY: "-10rem" }}
+      whileInView={{ opacity: 1, translateY: 0 }}
+      viewport={{ once: true, amount: "some" }}
+      transition={{ duration: 0.85, ease: "easeOut" }}
+    >
+      {children}
+    </SlideIn>
+  );
+}
+
+export function SlideInFromBottom({
+  children,
+}: Readonly<SlideInFromDirectionProps>) {
+  return (
+    <SlideIn
+      initial={{ opacity: 0, translateY: "10rem" }}
+      whileInView={{ opacity: 1, translateY: 0 }}
+      viewport={{ once: true, amount: "some" }}
+      transition={{ duration: 0.85, ease: "easeOut" }}
+    >
+      {children}
+    </SlideIn>
   );
 }

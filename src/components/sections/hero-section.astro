@@ -3,16 +3,11 @@ import PrimaryButton from "../buttons/primary-button.astro";
 import GithubIcon from "../icons/github-icon.astro";
 import LinkedinIcon from "../icons/linkedin-icon.astro";
 import MainContainer from "../main-container.astro";
-import SlideIn from "../motion/slide-in";
+import { SlideInFromLeft } from "../motion/slide-in";
 ---
 
 <MainContainer as="section" className="w-full">
-  <SlideIn
-    initial={{ opacity: 0, translateX: "-10rem" }}
-    animate={{ opacity: 1, translateX: "0rem" }}
-    transition={{ duration: 0.85, ease: "easeOut" }}
-    client:load
-  >
+  <SlideInFromLeft client:idle>
     <div class="flex flex-col gap-6">
       <div class="flex flex-col gap-2">
         <p class="font-mono text-foreground-muted">
@@ -49,5 +44,5 @@ import SlideIn from "../motion/slide-in";
         </div>
       </div>
     </div>
-  </SlideIn>
+  </SlideInFromLeft>
 </MainContainer>

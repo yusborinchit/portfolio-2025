@@ -1,7 +1,7 @@
 ---
 import EducationCard from "../cards/education-card.astro";
 import MainContainer from "../main-container.astro";
-import SlideIn from "../motion/slide-in";
+import { SlideInFromLeft, SlideInFromRight } from "../motion/slide-in";
 ---
 
 <MainContainer as="section" className="flex flex-col gap-6">
@@ -14,13 +14,7 @@ import SlideIn from "../motion/slide-in";
     A peek into my educational background and learning experiences.
   </p>
   <div class="grid sm:grid-cols-2 gap-6">
-    <SlideIn
-      initial={{ opacity: 0, translateX: "-10rem" }}
-      whileInView={{ opacity: 1, translateX: 0 }}
-      viewport={{ once: true, amount: "some" }}
-      transition={{ duration: 0.85, ease: "easeOut" }}
-      client:load
-    >
+    <SlideInFromLeft client:idle>
       <EducationCard
         type="Technological high school"
         institution="Instituto Tecnológico Superior"
@@ -29,14 +23,8 @@ import SlideIn from "../motion/slide-in";
         time="From 2020 to 2022"
         href="#"
       />
-    </SlideIn>
-    <SlideIn
-      initial={{ opacity: 0, translateX: "10rem" }}
-      whileInView={{ opacity: 1, translateX: 0 }}
-      viewport={{ once: true, amount: "some" }}
-      transition={{ duration: 0.85, ease: "easeOut" }}
-      client:load
-    >
+    </SlideInFromLeft>
+    <SlideInFromRight client:idle>
       <EducationCard
         type="University of Engineering"
         institution="Facultad de Ingeniería"
@@ -45,6 +33,6 @@ import SlideIn from "../motion/slide-in";
         time="From 2023 to Present"
         href="#"
       />
-    </SlideIn>
+    </SlideInFromRight>
   </div>
 </MainContainer>

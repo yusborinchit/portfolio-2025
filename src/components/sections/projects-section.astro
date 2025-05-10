@@ -1,6 +1,7 @@
 ---
 import MainContainer from "../main-container.astro";
 import ProjectsList from "../lists/projects-list.astro";
+import { projects } from "../../data/project";
 ---
 
 <MainContainer as="section" className="flex flex-col gap-6">
@@ -25,5 +26,5 @@ import ProjectsList from "../lists/projects-list.astro";
     Dive into a showcase of my recent projects, each a testament to my skills
     and creativity.
   </p>
-  <ProjectsList />
+  <ProjectsList projects={projects} />
 </MainContainer>

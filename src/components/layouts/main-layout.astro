@@ -2,14 +2,13 @@
 import "@fontsource-variable/arimo";
 import "@fontsource-variable/jetbrains-mono";
 
-import BackgroundBlob from "../motion/background-blob";
 import Background from "../background.astro";
 
 import "../../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -18,10 +17,11 @@ import "../../styles/global.css";
     <title>Santiago García | Portfolio 2025</title>
   </head>
   <body
-    class="font-sans subpixel-antialiased scroll-smooth text-lg text-foreground bg-background selection:bg-accent selection:text-foreground"
+    class="font-sans subpixel-antialiased overflow-x-hidden max-w-screen text-lg text-foreground bg-background selection:bg-accent selection:text-foreground"
   >
-    <slot />
-    <!-- <BackgroundBlob client:load /> -->
+    <div class="overflow-x-hidden">
+      <slot />
+    </div>
     <Background />
   </body>
 </html>
